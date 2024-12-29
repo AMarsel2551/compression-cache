@@ -61,6 +61,7 @@ class CacheTTL:
             self.compress_data()
         self.cache[self.key] = self.data
         self.timestamps[self.key] = time.time()
+        self.decompress_data()
         return self.data
 
     def make_hashable(self, value: Any) -> Any:
