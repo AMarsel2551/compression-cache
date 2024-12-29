@@ -1,3 +1,3 @@
-from main import CacheTTL
+from src.cache.main import CacheTTL
 
 __all__ = ["CacheTTL"]
