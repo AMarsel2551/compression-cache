@@ -8,7 +8,7 @@ from zstandard import ZstdCompressor, ZstdDecompressor
 
 class CacheTTL:
     def __init__(self, ttl: float = 60, key_args: Optional[List[str]] = None, compressor_level: Optional[int] = None):
-        """ Параметры кэширования """
+        """Параметры кэширования"""
         self.ttl: float = ttl
         self.key_args: Union[List[str], None] = key_args
         self.compressor_level: Union[int, None] = compressor_level
@@ -21,18 +21,19 @@ class CacheTTL:
         self.cache: Dict[int, Any] = {}
         self.timestamps: Dict[int, float] = {}
 
-    def __call__(self, func: Callable[..., Any], *args: Tuple[Any], **kwargs: Dict[str, Any]) -> Union[Callable[..., Any], Awaitable[Any]]:
+    def __call__(
+        self, func: Callable[..., Any], *args: Tuple[Any], **kwargs: Dict[str, Any]
+    ) -> Union[Callable[..., Any], Awaitable[Any]]:
         self.func = func
 
-        # Для синхронных и асинхронных функций
-        def wrapper(*args: Tuple[Any, ...], **kwargs: Dict[str, Any]) -> Any:  # Добавлен возвращаемый тип Any
+        def wrapper(*args: Tuple[Any, ...], **kwargs: Dict[str, Any]) -> Any:
             if iscoroutinefunction(self.func):
-                self.data = self.checking_the_cache(*args, **kwargs)
-                if self.data:
-                    return self.data
 
-                # Асинхронная функция, с аннотацией
-                async def async_func(*args: Tuple[Any, ...], **kwargs: Dict[str, Any]) -> Any:  # Указан тип возвращаемого значения
+                async def async_func(*args: Tuple[Any, ...], **kwargs: Dict[str, Any]) -> Any:
+                    self.data = self.checking_the_cache(*args, **kwargs)
+                    if self.data:
+                        return self.data
+
                     self.data = await func(*args, **kwargs)
                     return self.saving_the_cache()
 
@@ -68,16 +69,16 @@ class CacheTTL:
         return self.data
 
     def generate_key(self, *args: Tuple[Any], **kwargs: Dict[Any, Any]) -> int:
-        """ Генерирует ключ для кеша на основе указанных аргументов """
+        """Генерирует ключ для кеша на основе указанных аргументов"""
         sig = signature(self.func)
         bound_args = sig.bind(*args, **kwargs)
         bound_args.apply_defaults()
         return hash(str(bound_args))
 
     def compress_data(self) -> None:
-        """ Сжатие кэшированного объекта """
+        """Сжатие кэшированного объекта"""
         self.data = self.compressor.compress(pickle.dumps(self.data))
 
     def decompress_data(self) -> None:
-        """ Распаковывание кэшированного объекта """
+        """Распаковывание кэшированного объекта"""
         self.data = pickle.loads(self.decompressor.decompress(self.data))
