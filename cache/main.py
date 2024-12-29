@@ -2,7 +2,6 @@ import pickle
 import time
 from inspect import iscoroutinefunction, signature
 from typing import Any, Awaitable, Callable, Dict, List, Optional, Tuple, Union
-
 from zstandard import ZstdCompressor, ZstdDecompressor
 
 
@@ -24,6 +23,9 @@ class CacheTTL:
     def __call__(
         self, func: Callable[..., Any], *args: Tuple[Any], **kwargs: Dict[str, Any]
     ) -> Union[Callable[..., Any], Awaitable[Any]]:
+        # Очистка устаревших элементов
+        self.clear_expired_cache()
+
         self.func = func
 
         def wrapper(*args: Tuple[Any, ...], **kwargs: Dict[str, Any]) -> Any:
@@ -68,13 +70,21 @@ class CacheTTL:
             self.decompress_data()
         return self.data
 
+    def clear_expired_cache(self) -> None:
+        """Удаляет устаревшие записи из кеша"""
+        current_time = time.time()
+        expired_keys = [key for key, timestamp in self.timestamps.items() if current_time - timestamp >= self.ttl]
+        for key in expired_keys:
+            self.cache.pop(key, None)
+            self.timestamps.pop(key, None)
+
     def generate_key(self, *args: Tuple[Any], **kwargs: Dict[Any, Any]) -> int:
         """Генерирует ключ для кеша на основе указанных аргументов"""
-        hash_str = self.func.__name__
         sig = signature(self.func)
         bound_args = sig.bind(*args, **kwargs)
         bound_args.apply_defaults()
 
+        hash_str = ""
         if self.key_args:
             v_args = bound_args.arguments
             for key in v_args:
