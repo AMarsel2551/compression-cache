@@ -70,10 +70,17 @@ class CacheTTL:
 
     def generate_key(self, *args: Tuple[Any], **kwargs: Dict[Any, Any]) -> int:
         """Генерирует ключ для кеша на основе указанных аргументов"""
+        hash_str = self.func.__name__
         sig = signature(self.func)
         bound_args = sig.bind(*args, **kwargs)
         bound_args.apply_defaults()
-        return hash(str(bound_args))
+
+        if self.key_args:
+            v_args = bound_args.arguments
+            for key in v_args:
+                if key in self.key_args:
+                    hash_str += str(v_args[key])
+        return hash(hash_str)
 
     def compress_data(self) -> None:
         """Сжатие кэшированного объекта"""
