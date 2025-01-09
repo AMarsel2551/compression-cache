@@ -5,7 +5,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="ecomcache",
-    version="0.1.3",
+    version="0.1.4",
     packages=find_packages(),
     install_requires=["zstandard==0.23.0"],
 )
