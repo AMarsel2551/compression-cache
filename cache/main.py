@@ -6,7 +6,7 @@ from zstandard import ZstdCompressor, ZstdDecompressor
 
 
 class CacheTTL:
-    def __init__(self, ttl: float = 60, key_args: Optional[List[str]] = None, compressor_level: Optional[int] = None):
+    def __init__(self, ttl: float = 60, key_args: Optional[List[str]] = None, compressor_level: Optional[int] = None) -> None:
         """Параметры кэширования"""
         self.ttl: float = ttl
         self.key_args: Union[List[str], None] = key_args

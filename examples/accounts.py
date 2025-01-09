@@ -15,5 +15,5 @@ def get_accounts(count_account: int) -> List[Dict[str, Union[str, int]]]:
             "first_name": fake.first_name(),
             "last_name": fake.last_name(),
         }
-        accounts.append(account)
+        accounts.append(account) # type: ignore
     return accounts
