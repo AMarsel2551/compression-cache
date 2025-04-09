@@ -1,7 +1,8 @@
 # COMPRESSION-CACHE
 
 
-[![AsyncPG Version](https://img.shields.io/pypi/v/compression-cache.svg)](https://pypi.python.org/pypi/compression-cache)
+[![PyPI version](https://img.shields.io/pypi/v/compression-cache.svg)](https://pypi.python.org/pypi/compression-cache) 
+[![GitHub](https://img.shields.io/github/stars/AMarsel2551/compression-cache?style=social)](https://github.com/AMarsel2551/compression-cache)
 
 
 ## Описание
