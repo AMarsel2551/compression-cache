@@ -9,8 +9,6 @@
 ## Примеры:
 
 ### Async:
-code-block:: python
-    
       # LRU Cache
       import asyncio, faker, random
       from typing import Dict, List, Union
@@ -47,8 +45,6 @@ code-block:: python
 
 
 ### Sync:
-code-block:: python
-    
       # LRU Cache
       import faker, random
       from typing import Dict, List, Union
