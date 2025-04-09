@@ -1,0 +1,8 @@
+
+# Pre Commit
+pre-commit run --all-files
+
+
+# Для тестов
+pytest -v -s
+pytest -v -s tests/marsel/test_m.py

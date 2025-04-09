@@ -1,0 +1,18 @@
+# Pre Commit
+aiohttp
+aiohttp_retry
+isort
+pycln
+black
+pre-commit
+mypy
+ruff
+pytest
+types-ujson
+pandas-stubs
+
+# Для тестов
+pytest-asyncio==0.21.2
+httpx
+hypothesis
+pytest-dotenv
