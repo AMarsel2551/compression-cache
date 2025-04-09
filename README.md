@@ -9,7 +9,7 @@
 ## Примеры:
 
 ### Async:
-Пример асинхронного кэширования можно найти в файле [example.py](./examples/example_async.py).
+Пример асинхронного кэширования можно найти в файле -> [файл](https://github.com/AMarsel2551/compression-cache/blob/main/examples/example_async.py)
    ```python
 import asyncio, faker, random
 from typing import Dict, List, Union
@@ -48,7 +48,7 @@ asyncio.run(main())
 
 
 ### Sync:
-Пример синхронного кэширования можно найти в файле [example.py](./examples/example_sync.py).
+Пример синхронного кэширования можно найти в файле -> [файл](https://github.com/AMarsel2551/compression-cache/blob/main/examples/example_sync.py)
    ```python
 import faker, random
 from typing import Dict, List, Union
