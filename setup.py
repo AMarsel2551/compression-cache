@@ -4,7 +4,7 @@
 from setuptools import find_packages, setup
 
 setup(
-    name="super_cache",
+    name="compression-cache",
     version="0.0.1",
     packages=find_packages(),
     description='Cache function',

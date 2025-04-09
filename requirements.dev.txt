@@ -16,3 +16,7 @@ pytest-asyncio==0.21.2
 httpx
 hypothesis
 pytest-dotenv
+
+# Для сборки пакета
+setuptools
+twine

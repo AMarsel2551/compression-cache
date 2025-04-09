@@ -6,3 +6,10 @@ pre-commit run --all-files
 # Для тестов
 pytest -v -s
 pytest -v -s tests/marsel/test_m.py
+
+
+# Для сборки пакета
+python setup.py sdist
+
+# Для развёртывания пакет на PyPI
+twine upload dist/*
