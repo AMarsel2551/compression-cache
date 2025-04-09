@@ -5,7 +5,7 @@ import os
 from setuptools import find_packages, setup
 
 
-PROJECT_URL = "https://github.com/AMarsel2551/compression-cache.git"
+PROJECT_URL = "https://github.com/AMarsel2551/compression-cache"
 
 
 def read_readme():
@@ -20,7 +20,7 @@ def read_requirements():
 
 setup(
     name="compression-cache",
-    version="0.0.10",
+    version="0.0.11",
     packages=find_packages(),
     description='Python function caching with compression',
     long_description=read_readme(),
@@ -30,7 +30,11 @@ setup(
     zip_safe=False,
     url=PROJECT_URL,
     project_urls={
-        "Source Code": PROJECT_URL,
-        "Documentation": PROJECT_URL,
+        "Source Code": PROJECT_URL + ".git",
+        "Documentation": PROJECT_URL + "/wiki",
+        "Stars": PROJECT_URL + "/stargazers",
+        "Forks": PROJECT_URL + "/network/members",
+        "Open Issues": PROJECT_URL + "/issues",
+        "Open Pull Requests": PROJECT_URL + "/pulls",
     },
 )
