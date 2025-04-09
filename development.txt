@@ -13,3 +13,5 @@ python setup.py sdist
 
 # Для развёртывания пакет на PyPI
 twine upload dist/*
+rm -rf dist
+rm -rf *.egg-info
