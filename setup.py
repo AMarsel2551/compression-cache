@@ -5,7 +5,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="compression-cache",
-    version="0.0.3",
+    version="0.0.4",
     packages=find_packages(),
     description='Python function caching with compression',
     install_requires=["zstandard==0.23.0"],
