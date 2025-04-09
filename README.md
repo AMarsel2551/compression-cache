@@ -87,3 +87,9 @@ def main():
 main()
 
 ```
+
+
+License
+-------
+
+asyncpg is developed and distributed under the Apache 2.0 license.
