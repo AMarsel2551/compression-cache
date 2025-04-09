@@ -17,7 +17,7 @@ def read_requirements():
 
 setup(
     name="compression-cache",
-    version="0.0.7",
+    version="0.0.8",
     packages=find_packages(),
     description='Python function caching with compression',
     long_description=read_readme(),
