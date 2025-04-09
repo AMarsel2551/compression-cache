@@ -83,8 +83,9 @@ class CacheTTL:
         sig = signature(self.func)
         bound_args = sig.bind(*args, **kwargs)
         bound_args.apply_defaults()
+        func_id = id(self.func)
 
-        hash_str = ""
+        hash_str = f"{func_id}_"
         if self.key_args:
             v_args = bound_args.arguments
             for key in v_args:
