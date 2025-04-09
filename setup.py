@@ -20,12 +20,12 @@ def read_requirements():
 
 setup(
     name="compression-cache",
-    version="0.0.12",
+    version="0.0.13",
     packages=find_packages(),
     description='Python function caching with compression',
     long_description=read_readme(),
     long_description_content_type="text/markdown",
-    install_requires=read_requirements(),
+    install_requires=['zstandard==0.23.0'],#read_requirements(),
     author_email="m.adbullinn@gmail.com",
     zip_safe=False,
     url=PROJECT_URL,
