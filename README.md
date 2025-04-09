@@ -1,8 +1,8 @@
 # COMPRESSION-CACHE
 
 
-.. image:: https://img.shields.io/pypi/v/asyncpg.svg
-   :target: https://pypi.python.org/pypi/asyncpg
+[![AsyncPG Version](https://img.shields.io/pypi/v/compression-cache.svg)](https://pypi.python.org/pypi/compression-cache)
+
 
 ## Установка
 1. Установка библиотеки:
