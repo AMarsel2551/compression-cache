@@ -6,7 +6,9 @@ from setuptools import find_packages, setup
 
 
 PROJECT_URL = "https://github.com/AMarsel2551/compression-cache"
-
+INSTALL_REQUIRES=[
+    "zstandard==0.23.0"
+]
 
 def read_readme():
     with open(os.path.join(os.path.dirname(__file__), 'README.md'), encoding='utf-8') as f:
@@ -15,12 +17,12 @@ def read_readme():
 
 setup(
     name="compression-cache",
-    version="0.0.20",
+    version="0.0.21",
     packages=find_packages(),
     description='Python function caching with compression',
     long_description=read_readme(),
     long_description_content_type="text/markdown",
-    install_requires=["zstandard==0.23.0"],
+    install_requires=INSTALL_REQUIRES,
     author_email="m.adbullinn@gmail.com",
     zip_safe=False,
     url=PROJECT_URL,
