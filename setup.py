@@ -20,7 +20,7 @@ def read_requirements():
 
 setup(
     name="compression-cache",
-    version="0.0.11",
+    version="0.0.12",
     packages=find_packages(),
     description='Python function caching with compression',
     long_description=read_readme(),
@@ -32,9 +32,5 @@ setup(
     project_urls={
         "Source Code": PROJECT_URL + ".git",
         "Documentation": PROJECT_URL + "/wiki",
-        "Stars": PROJECT_URL + "/stargazers",
-        "Forks": PROJECT_URL + "/network/members",
-        "Open Issues": PROJECT_URL + "/issues",
-        "Open Pull Requests": PROJECT_URL + "/pulls",
     },
 )
