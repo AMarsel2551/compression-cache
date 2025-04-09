@@ -1,6 +1,12 @@
 # COMPRESSION-CACHE
 
 
+.. image:: https://github.com/MagicStack/compression-cache/workflows/Tests/badge.svg
+   :target: https://github.com/MagicStack/compression-cache/actions?query=workflow%3ATests+branch%3Amaster
+   :alt: GitHub Actions status
+.. image:: https://img.shields.io/pypi/v/compression-cache.svg
+   :target: https://pypi.python.org/pypi/compression-cache
+
 ## Установка
 1. Установка библиотеки:
    ```bash
