@@ -1,0 +1,9 @@
+Metadata-Version: 2.2
+Name: compression-cache
+Version: 0.0.1
+Summary: Cache function
+Author-email: m.adbullinn@gmail.com
+Requires-Dist: zstandard==0.23.0
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: summary
