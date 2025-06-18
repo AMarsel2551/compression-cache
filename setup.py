@@ -20,7 +20,7 @@ def read_readme():
 
 setup(
     name="compression-cache",
-    version="0.0.22",
+    version="0.0.23",
     packages=find_packages(),
     description='Python function caching with compression',
     long_description=read_readme(),
