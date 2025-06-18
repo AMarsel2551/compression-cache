@@ -1,10 +1,10 @@
 import faker, random
 from typing import Dict, List, Union
 from compression_cache import CacheTTL
+from compression_cache.main import StoragePlaces
 
 
 def get_accounts(count_account: int) -> List[Dict[str, Union[str, int]]]:
-    print(f"Get new list accounts count_account: {count_account}")
     fake = faker.Faker()
     accounts: List[Dict[str, Union[str, int]]] = []
     for _ in range(count_account):
@@ -18,15 +18,16 @@ def get_accounts(count_account: int) -> List[Dict[str, Union[str, int]]]:
     return accounts
 
 
-@CacheTTL(ttl=60 * 5, key_args=["count_account"], compressor_level=3)
-def async_function(count_account: int) -> List[Dict[str, Union[str, int]]]:
+@CacheTTL(ttl=5, key_args=["count_account"], compressor_level=None, storage_places=StoragePlaces.REDIS, shared=True, external_topic='test_topic2', external_key='test_key')
+def sync_function(count_account: int) -> List[Dict[str, Union[str, int]]]:
+    print("call func")
     return get_accounts(count_account=count_account)
 
 
 def main():
-    for count_account in [10, 20, 10, 20]:
-        print(f"count_account: {count_account}")
-        async_function(count_account=count_account)
+    for count_account in [10, 10]:
+        res = sync_function(count_account=count_account)
+        print(f"{count_account=} / {res=}")
 
 
 main()

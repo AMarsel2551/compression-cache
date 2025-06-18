@@ -16,6 +16,7 @@ pytest-asyncio==0.21.2
 httpx
 hypothesis
 pytest-dotenv
+faker
 
 # Для сборки пакета
 setuptools

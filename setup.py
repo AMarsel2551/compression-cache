@@ -7,7 +7,10 @@ from setuptools import find_packages, setup
 
 PROJECT_URL = "https://github.com/AMarsel2551/compression-cache"
 INSTALL_REQUIRES=[
-    "zstandard==0.23.0"
+    "zstandard==0.23.0",
+    "redis==5.2.1",
+    "pydantic==2.11.7",
+    "ujson==5.10.0",
 ]
 
 def read_readme():

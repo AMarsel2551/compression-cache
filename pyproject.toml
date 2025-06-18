@@ -76,5 +76,8 @@ disable_error_code = ["valid-type"]
 module = [
     "setuptools",
     "zstandard",
+    "redis",
+    "pydantic",
+    "ujson",
 ]
 ignore_missing_imports = true

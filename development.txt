@@ -11,6 +11,7 @@ pytest -v -s tests/marsel/test_m.py
 # Для сборки пакета
 python setup.py sdist
 
+
 # Для развёртывания пакет на PyPI
 twine upload dist/* --username __token__ --password $TWINE_API_TOKEN
 rm -rf dist
