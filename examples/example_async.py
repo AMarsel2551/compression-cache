@@ -4,7 +4,6 @@ from compression_cache import CacheTTL
 
 
 async def get_accounts(count_account: int) -> List[Dict[str, Union[str, int]]]:
-    print(f"Get new list accounts count_account: {count_account}")
     fake = faker.Faker()
     accounts: List[Dict[str, Union[str, int]]] = []
     for _ in range(count_account):
@@ -18,15 +17,16 @@ async def get_accounts(count_account: int) -> List[Dict[str, Union[str, int]]]:
     return accounts
 
 
-@CacheTTL(ttl=60 * 5, key_args=["count_account"], compressor_level=3)
+@CacheTTL(ttl=60 * 5, key_args=["count_account"], compressor_level=None)
 async def async_function(count_account: int) -> List[Dict[str, Union[str, int]]]:
+    print("call func")
     return await get_accounts(count_account=count_account)
 
 
 async def main():
     for count_account in [10, 20, 10, 20]:
-        print(f"count_account: {count_account}")
-        await async_function(count_account=count_account)
+        res = await async_function(count_account=count_account)
+        print(f"{count_account=} / {res=}")
 
 
 asyncio.run(main())

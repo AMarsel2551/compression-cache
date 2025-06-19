@@ -62,7 +62,7 @@ class CacheTTL:
 
                 async def async_func(*args: Tuple[Any, ...], **kwargs: Dict[str, Any]) -> Any:
                     self.data = self.checking_the_cache(*args, **kwargs)
-                    if self.data:
+                    if not isinstance(self.data, Empty):
                         return self.data
 
                     self.data = await func(*args, **kwargs)
